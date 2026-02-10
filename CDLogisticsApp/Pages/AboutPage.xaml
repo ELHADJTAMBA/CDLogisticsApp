@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CDLogisticsApp.Pages.AboutPage"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Image Source="about.jpg" Aspect="AspectFill" HeightRequest="200"/>
+
+            <Label Text="À propos de CD Logistics" Style="{StaticResource TitleLabel}" HorizontalOptions="Center"/>
+
+            <Label Text="CD Logistics fournit depuis plusieurs années des solutions complètes de transport et logistique pour entreprises." 
+                   Style="{StaticResource BodyLabel}" HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
