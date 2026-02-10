@@ -2,38 +2,293 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CDLogisticsApp.Pages.TeamPage"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{StaticResource LightGrayColor}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
-            <Label Text="Notre Équipe" Style="{StaticResource TitleLabel}" HorizontalOptions="Center"/>
+        <VerticalStackLayout Spacing="0">
 
-            <Grid ColumnSpacing="20" RowSpacing="20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <!-- HEADER -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource PrimaryColor}">
+                <Label Text="Notre Équipe" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+                <Label Text="Des professionnels dévoués à votre service" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
 
-                <StackLayout Grid.Column="0" Spacing="10" HorizontalOptions="Center">
-                    <Image Source="john.png" HeightRequest="100"/>
-                    <Label Text="John Doe" Style="{StaticResource SubtitleLabel}" HorizontalOptions="Center"/>
-                    <Label Text="CEO" Style="{StaticResource BodyLabel}" HorizontalOptions="Center"/>
-                </StackLayout>
+            <!-- INTRODUCTION -->
+            <VerticalStackLayout Padding="20,30" 
+                               BackgroundColor="{StaticResource WhiteColor}">
+                <Label Text="Notre équipe est composée de professionnels expérimentés et passionnés, dédiés à fournir des solutions logistiques de qualité supérieure. Chaque membre apporte son expertise unique pour garantir votre satisfaction." 
+                       Style="{StaticResource BodyLabel}"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,20"/>
+            </VerticalStackLayout>
 
-                <StackLayout Grid.Column="1" Spacing="10" HorizontalOptions="Center">
-                    <Image Source="jane.png" HeightRequest="100"/>
-                    <Label Text="Jane Smith" Style="{StaticResource SubtitleLabel}" HorizontalOptions="Center"/>
-                    <Label Text="Manager" Style="{StaticResource BodyLabel}" HorizontalOptions="Center"/>
-                </StackLayout>
+            <!-- ÉQUIPE DE DIRECTION -->
+            <VerticalStackLayout Padding="20,30" Spacing="20">
+                <Label Text="Direction" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
 
-                <StackLayout Grid.Column="2" Spacing="10" HorizontalOptions="Center">
-                    <Image Source="aliou.png" HeightRequest="100"/>
-                    <Label Text="Aliou Diallo" Style="{StaticResource SubtitleLabel}" HorizontalOptions="Center"/>
-                    <Label Text="Logisticien" Style="{StaticResource BodyLabel}" HorizontalOptions="Center"/>
-                </StackLayout>
+                <!-- CEO -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <Image Source="ceo.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center">
+                            <Image.Clip>
+                                <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100"/>
+                            </Image.Clip>
+                        </Image>
+                        <Label Text="Mamadou Aliou DIALLO" 
+                               Style="{StaticResource SubtitleLabel}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Directeur Général" 
+                               TextColor="{StaticResource AccentColor}"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Expert en logistique internationale avec plus de 15 ans d'expérience. Visionnaire et leader, il guide CD-Logistics vers l'excellence opérationnelle." 
+                               Style="{StaticResource BodyLabel}"
+                               HorizontalTextAlignment="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+                            <Label Text="📧 m.diallo@asm-cdlogistics.com" 
+                                   Style="{StaticResource SmallLabel}"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
 
-            </Grid>
+                <!-- Directeur des Opérations -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <Image Source="operations.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center">
+                            <Image.Clip>
+                                <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100"/>
+                            </Image.Clip>
+                        </Image>
+                        <Label Text="Aissatou BARRY" 
+                               Style="{StaticResource SubtitleLabel}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Directrice des Opérations" 
+                               TextColor="{StaticResource AccentColor}"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Spécialiste en gestion de la chaîne logistique avec 10 ans d'expérience. Elle assure la fluidité et l'efficacité de toutes nos opérations." 
+                               Style="{StaticResource BodyLabel}"
+                               HorizontalTextAlignment="Center"/>
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+                            <Label Text="📧 a.barry@asm-cdlogistics.com" 
+                                   Style="{StaticResource SmallLabel}"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+
+            <!-- ÉQUIPE OPÉRATIONNELLE -->
+            <VerticalStackLayout Padding="20,30" 
+                               BackgroundColor="{StaticResource LightGrayColor}"
+                               Spacing="20">
+                <Label Text="Équipe Opérationnelle" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+
+                <!-- Responsable Maritime -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="maritime_manager.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="100">
+                            <Image.Clip>
+                                <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                            </Image.Clip>
+                        </Image>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Ibrahima CAMARA" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Responsable Fret Maritime" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontSize="14"
+                                   FontAttributes="Bold"/>
+                            <Label Text="Expert en transport maritime et consignation de navires" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="📧 i.camara@asm-cdlogistics.com" 
+                                   Style="{StaticResource SmallLabel}"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Responsable Transit -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="transit_manager.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="100">
+                            <Image.Clip>
+                                <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                            </Image.Clip>
+                        </Image>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Fatoumata DIALLO" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Responsable Transit &amp; Douane" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontSize="14"
+                                   FontAttributes="Bold"/>
+                            <Label Text="Spécialiste en dédouanement et réglementation internationale" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="📧 f.diallo@asm-cdlogistics.com" 
+                                   Style="{StaticResource SmallLabel}"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Responsable Transport -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="transport_manager.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="100">
+                            <Image.Clip>
+                                <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                            </Image.Clip>
+                        </Image>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Sékou TOURÉ" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Responsable Transport Terrestre" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontSize="14"
+                                   FontAttributes="Bold"/>
+                            <Label Text="Expert en gestion de flotte et logistique routière" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="📧 s.toure@asm-cdlogistics.com" 
+                                   Style="{StaticResource SmallLabel}"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Responsable Entreposage -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="warehouse_manager.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="100">
+                            <Image.Clip>
+                                <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                            </Image.Clip>
+                        </Image>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Mohamed KONATÉ" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Responsable Entreposage" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontSize="14"
+                                   FontAttributes="Bold"/>
+                            <Label Text="Spécialiste en gestion d'entrepôts et inventaires" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="📧 m.konate@asm-cdlogistics.com" 
+                                   Style="{StaticResource SmallLabel}"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+            </VerticalStackLayout>
+
+            <!-- ÉQUIPE SUPPORT -->
+            <VerticalStackLayout Padding="20,30" Spacing="20">
+                <Label Text="Service Client" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+
+                <!-- Responsable Service Client -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="customer_service.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="100">
+                            <Image.Clip>
+                                <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                            </Image.Clip>
+                        </Image>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Mariama SOW" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Responsable Service Client" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontSize="14"
+                                   FontAttributes="Bold"/>
+                            <Label Text="Garantit votre satisfaction et répond à toutes vos demandes" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="📧 m.sow@asm-cdlogistics.com" 
+                                   Style="{StaticResource SmallLabel}"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+            </VerticalStackLayout>
+
+            <!-- REJOINDRE L'ÉQUIPE -->
+            <VerticalStackLayout Padding="30,40" 
+                               BackgroundColor="{StaticResource PrimaryColor}">
+                <Label Text="Rejoignez Notre Équipe" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,15"/>
+                <Label Text="Nous recherchons constamment des talents passionnés par la logistique" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,25"/>
+                <Button Text="Voir les opportunités" 
+                       Style="{StaticResource PrimaryButton}"
+                       HorizontalOptions="Center"
+                       Clicked="OnCareersClicked"/>
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

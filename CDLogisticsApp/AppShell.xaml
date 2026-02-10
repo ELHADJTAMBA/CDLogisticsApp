@@ -3,13 +3,29 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:pages="clr-namespace:CDLogisticsApp.Pages"
        x:Class="CDLogisticsApp.AppShell"
-       FlyoutBehavior="Disabled">
+       FlyoutBehavior="Disabled"
+       Shell.TabBarBackgroundColor="#003366"
+       Shell.TabBarForegroundColor="White"
+       Shell.TabBarUnselectedColor="#CCCCCC">
 
     <TabBar>
-        <ShellContent Title="Accueil" Icon="home.png" ContentTemplate="{DataTemplate pages:MainPage}" />
-        <ShellContent Title="Services" Icon="services.png" ContentTemplate="{DataTemplate pages:ServicesPage}" />
-        <ShellContent Title="À propos" Icon="about_icon.png" ContentTemplate="{DataTemplate pages:AboutPage}" />
-        <ShellContent Title="Équipe" Icon="team.png" ContentTemplate="{DataTemplate pages:TeamPage}" />
-        <ShellContent Title="Contact" Icon="contact.png" ContentTemplate="{DataTemplate pages:ContactPage}" />
+        <ShellContent Title="Accueil" 
+                      Icon="home.png" 
+                      ContentTemplate="{DataTemplate pages:MainPage}" />
+        <ShellContent Title="Services" 
+                      Icon="services.png" 
+                      ContentTemplate="{DataTemplate pages:ServicesPage}" />
+        <ShellContent Title="À propos" 
+                      Icon="about_icon.png" 
+                      ContentTemplate="{DataTemplate pages:AboutPage}" />
+        <ShellContent Title="Équipe" 
+                      Icon="team.png" 
+                      ContentTemplate="{DataTemplate pages:TeamPage}" />
+        <ShellContent Title="Expertise" 
+                      Icon="expertise.png" 
+                      ContentTemplate="{DataTemplate pages:ExpertisePage}" />
+        <ShellContent Title="Contact" 
+                      Icon="contact.png" 
+                      ContentTemplate="{DataTemplate pages:ContactPage}" />
     </TabBar>
 </Shell>

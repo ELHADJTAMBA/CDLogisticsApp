@@ -2,17 +2,298 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CDLogisticsApp.Pages.AboutPage"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{StaticResource LightGrayColor}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <VerticalStackLayout Spacing="0">
 
-            <Image Source="about.jpg" Aspect="AspectFill" HeightRequest="200"/>
+            <!-- HEADER -->
+            <Grid Padding="0" HeightRequest="300">
+                <Image Source="about.jpg" 
+                       Aspect="AspectFill"/>
+                <BoxView Color="#00336690"/>
+                <VerticalStackLayout VerticalOptions="Center" Padding="30">
+                    <Label Text="À Propos de CD Logistics" 
+                           Style="{StaticResource TitleLabel}"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,15"/>
+                    <Label Text="Votre partenaire logistique de confiance depuis 2019" 
+                           TextColor="White"
+                           FontSize="18"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </Grid>
 
-            <Label Text="À propos de CD Logistics" Style="{StaticResource TitleLabel}" HorizontalOptions="Center"/>
+            <!-- PRÉSENTATION -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource WhiteColor}">
+                <Label Text="Qui Sommes-Nous ?" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,20"/>
 
-            <Label Text="CD Logistics fournit depuis plusieurs années des solutions complètes de transport et logistique pour entreprises." 
-                   Style="{StaticResource BodyLabel}" HorizontalOptions="Center"/>
+                <Label Style="{StaticResource BodyLabel}" 
+                       Margin="0,0,0,15">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="CD-Logistics" FontAttributes="Bold"/>
+                            <Span Text=" est une entreprise guinéenne spécialisée dans les solutions logistiques intégrées. Depuis notre création en 2019, nous nous sommes imposés comme un acteur majeur du secteur logistique en Guinée."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Label Text="Notre expertise couvre l'ensemble de la chaîne logistique : du fret maritime et aérien au transport terrestre, en passant par l'entreposage, le transit douanier et les services supports." 
+                       Style="{StaticResource BodyLabel}"
+                       Margin="0,0,0,15"/>
+
+                <Label Text="Nous accompagnons nos clients dans tous leurs projets avec professionnalisme, fiabilité et innovation." 
+                       Style="{StaticResource BodyLabel}"/>
+            </VerticalStackLayout>
+
+            <!-- NOTRE MISSION -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource LightGrayColor}">
+                <Label Text="Notre Mission" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,20"/>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="15">
+                            <Label Text="🎯" FontSize="32"/>
+                            <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                                <Label Text="Excellence Opérationnelle" 
+                                       Style="{StaticResource SubtitleLabel}"/>
+                                <Label Text="Fournir des services logistiques de qualité supérieure avec efficacité et ponctualité" 
+                                       Style="{StaticResource BodyLabel}"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="15">
+                            <Label Text="🤝" FontSize="32"/>
+                            <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                                <Label Text="Partenariat Durable" 
+                                       Style="{StaticResource SubtitleLabel}"/>
+                                <Label Text="Construire des relations de confiance à long terme avec nos clients et partenaires" 
+                                       Style="{StaticResource BodyLabel}"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="15">
+                            <Label Text="💡" FontSize="32"/>
+                            <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                                <Label Text="Innovation Continue" 
+                                       Style="{StaticResource SubtitleLabel}"/>
+                                <Label Text="Améliorer constamment nos processus et technologies pour mieux servir nos clients" 
+                                       Style="{StaticResource BodyLabel}"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- NOS VALEURS -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource WhiteColor}">
+                <Label Text="Nos Valeurs" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,20"/>
+
+                <Grid ColumnSpacing="15" RowSpacing="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Frame Grid.Row="0" Grid.Column="0" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource PrimaryColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="⚡" FontSize="40" HorizontalOptions="Center"/>
+                            <Label Text="Rapidité" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Réactivité et efficacité dans chaque opération" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="1" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource AccentColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="🔒" FontSize="40" HorizontalOptions="Center"/>
+                            <Label Text="Fiabilité" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Engagement et respect de nos promesses" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="0" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource SecondaryColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="👥" FontSize="40" HorizontalOptions="Center"/>
+                            <Label Text="Proximité" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Écoute attentive et accompagnement personnalisé" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="1" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource PrimaryColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="🌍" FontSize="40" HorizontalOptions="Center"/>
+                            <Label Text="Expertise" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Connaissance approfondie du marché guinéen" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!-- POURQUOI NOUS CHOISIR -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource LightGrayColor}">
+                <Label Text="Pourquoi Choisir CD-Logistics ?" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,20"/>
+
+                <VerticalStackLayout Spacing="15">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Plus de 5 années d'expérience dans la logistique guinéenne" 
+                               Style="{StaticResource BodyLabel}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Réseau international de partenaires fiables et certifiés" 
+                               Style="{StaticResource BodyLabel}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Équipe qualifiée et multilingue à votre service" 
+                               Style="{StaticResource BodyLabel}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Solutions personnalisées adaptées à vos besoins spécifiques" 
+                               Style="{StaticResource BodyLabel}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Support client disponible 24/7 pour vous accompagner" 
+                               Style="{StaticResource BodyLabel}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Technologies modernes de suivi et traçabilité" 
+                               Style="{StaticResource BodyLabel}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Tarifs compétitifs et transparents" 
+                               Style="{StaticResource BodyLabel}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- INFORMATIONS LÉGALES -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource WhiteColor}">
+                <Label Text="Informations Légales" 
+                       Style="{StaticResource SubtitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,15"/>
+
+                <VerticalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="📄" FontSize="20"/>
+                        <Label Text="RCCM/GN.TCC.2023 B.01263" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="🔢" FontSize="20"/>
+                        <Label Text="NIF: H1018725" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- CALL TO ACTION -->
+            <VerticalStackLayout Padding="30,40" 
+                               BackgroundColor="{StaticResource PrimaryColor}">
+                <Label Text="Prêt à Commencer ?" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,15"/>
+                <Label Text="Rejoignez nos 500+ clients satisfaits" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,25"/>
+                <Button Text="Contactez-nous" 
+                       Style="{StaticResource PrimaryButton}"
+                       HorizontalOptions="Center"
+                       Clicked="OnContactClicked"/>
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

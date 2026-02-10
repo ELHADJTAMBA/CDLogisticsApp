@@ -4,11 +4,23 @@
              x:Class="CDLogisticsApp.App">
     <Application.Resources>
         <ResourceDictionary>
+            <!-- Couleurs CD-Logistics -->
             <Color x:Key="PrimaryColor">#003366</Color>
             <Color x:Key="SecondaryColor">#007ACC</Color>
             <Color x:Key="AccentColor">#FF9900</Color>
             <Color x:Key="TextColor">#333333</Color>
+            <Color x:Key="LightTextColor">#666666</Color>
             <Color x:Key="BackgroundColor">#FFFFFF</Color>
+            <Color x:Key="LightGrayColor">#F5F5F5</Color>
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+
+            <!-- Styles de titres -->
+            <Style x:Key="HeroTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="36" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
 
             <Style x:Key="TitleLabel" TargetType="Label">
                 <Setter Property="FontSize" Value="28" />
@@ -18,19 +30,63 @@
 
             <Style x:Key="SubtitleLabel" TargetType="Label">
                 <Setter Property="FontSize" Value="20" />
-                <Setter Property="TextColor" Value="{StaticResource SecondaryColor}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
             </Style>
 
             <Style x:Key="BodyLabel" TargetType="Label">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
             </Style>
 
+            <Style x:Key="SmallLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+            </Style>
+
+            <!-- Styles de boutons -->
             <Style x:Key="PrimaryButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}" />
                 <Setter Property="TextColor" Value="White" />
-                <Setter Property="CornerRadius" Value="10" />
-                <Setter Property="Padding" Value="10" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="20,12" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="Padding" Value="20,12" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <!-- Styles de cartes -->
+            <Style x:Key="CardFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="Padding" Value="15" />
+                <Setter Property="Margin" Value="0,10" />
+            </Style>
+
+            <!-- Style pour statistiques -->
+            <Style x:Key="StatNumber" TargetType="Label">
+                <Setter Property="FontSize" Value="32" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="StatLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

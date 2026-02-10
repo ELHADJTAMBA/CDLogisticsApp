@@ -2,42 +2,249 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CDLogisticsApp.Pages.ServicesPage"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{StaticResource LightGrayColor}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <VerticalStackLayout Spacing="0">
 
-            <Label Text="Nos Services" Style="{StaticResource TitleLabel}" HorizontalOptions="Center" />
+            <!-- HEADER -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource PrimaryColor}">
+                <Label Text="Nos Services" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+                <Label Text="Solutions logistiques complètes pour tous vos besoins" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
 
-            <Grid ColumnSpacing="10" RowSpacing="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <!-- SERVICES GRID -->
+            <VerticalStackLayout Padding="20,30" Spacing="20">
 
-                <StackLayout Grid.Row="0" Grid.Column="0" Spacing="10" HorizontalOptions="Center">
-                    <Image Source="truck.png" HeightRequest="80"/>
-                    <Label Text="Transport" Style="{StaticResource SubtitleLabel}" HorizontalOptions="Center"/>
-                    <Label Text="Solutions de transport rapides et sécurisées" Style="{StaticResource BodyLabel}" HorizontalOptions="Center"/>
-                </StackLayout>
+                <!-- FRET MARITIME -->
+                <Frame Style="{StaticResource CardFrame}" Padding="0">
+                    <VerticalStackLayout Spacing="0">
+                        <Image Source="maritime.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="200"/>
+                        <VerticalStackLayout Padding="20" Spacing="10">
+                            <Label Text="Fret Maritime International" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Solutions complètes de transport maritime avec couverture mondiale. Nous gérons vos expéditions de bout en bout avec expertise et fiabilité."
+                                   Style="{StaticResource BodyLabel}"/>
 
-                <StackLayout Grid.Row="0" Grid.Column="1" Spacing="10" HorizontalOptions="Center">
-                    <Image Source="warehouse.png" HeightRequest="80"/>
-                    <Label Text="Logistique" Style="{StaticResource SubtitleLabel}" HorizontalOptions="Center"/>
-                    <Label Text="Gestion et stockage de vos marchandises" Style="{StaticResource BodyLabel}" HorizontalOptions="Center"/>
-                </StackLayout>
+                            <VerticalStackLayout Spacing="8" Margin="0,15,0,0">
+                                <Label Text="• Transport FCL (Full Container Load)" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Transport LCL (Less than Container Load)" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Consignation de navires" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Gestion documentaire complète" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Suivi en temps réel" 
+                                       Style="{StaticResource BodyLabel}"/>
+                            </VerticalStackLayout>
 
-                <StackLayout Grid.Row="0" Grid.Column="2" Spacing="10" HorizontalOptions="Center">
-                    <Image Source="delivery.png" HeightRequest="80"/>
-                    <Label Text="Livraison" Style="{StaticResource SubtitleLabel}" HorizontalOptions="Center"/>
-                    <Label Text="Livraison fiable et rapide vers vos clients" Style="{StaticResource BodyLabel}" HorizontalOptions="Center"/>
-                </StackLayout>
-            </Grid>
+                            <Button Text="En savoir plus" 
+                                   Style="{StaticResource PrimaryButton}"
+                                   Margin="0,15,0,0"
+                                   Clicked="OnMaritimeClicked"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- TRANSPORT AÉRIEN -->
+                <Frame Style="{StaticResource CardFrame}" Padding="0">
+                    <VerticalStackLayout Spacing="0">
+                        <Image Source="aerien.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="200"/>
+                        <VerticalStackLayout Padding="20" Spacing="10">
+                            <Label Text="Transport Aérien Express" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Services de fret aérien rapides et sécurisés pour vos marchandises urgentes. Couverture mondiale avec les meilleurs partenaires."
+                                   Style="{StaticResource BodyLabel}"/>
+
+                            <VerticalStackLayout Spacing="8" Margin="0,15,0,0">
+                                <Label Text="• Livraison express 24-48h" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Transport de marchandises sensibles" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Assurance complète" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Réseau mondial de partenaires" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Tracking en temps réel" 
+                                       Style="{StaticResource BodyLabel}"/>
+                            </VerticalStackLayout>
+
+                            <Button Text="En savoir plus" 
+                                   Style="{StaticResource PrimaryButton}"
+                                   Margin="0,15,0,0"
+                                   Clicked="OnAerienClicked"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- TRANSPORT TERRESTRE -->
+                <Frame Style="{StaticResource CardFrame}" Padding="0">
+                    <VerticalStackLayout Spacing="0">
+                        <Image Source="terrestre.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="200"/>
+                        <VerticalStackLayout Padding="20" Spacing="10">
+                            <Label Text="Transport Terrestre" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Flotte moderne de véhicules et camions pour le transport local et régional. Solutions de camionnage adaptées à tous vos besoins."
+                                   Style="{StaticResource BodyLabel}"/>
+
+                            <VerticalStackLayout Spacing="8" Margin="0,15,0,0">
+                                <Label Text="• Flotte de 3T à 40T" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Transport national et régional" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Livraison porte-à-porte" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Transport de matériaux BTP" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Chauffeurs expérimentés" 
+                                       Style="{StaticResource BodyLabel}"/>
+                            </VerticalStackLayout>
+
+                            <Button Text="En savoir plus" 
+                                   Style="{StaticResource PrimaryButton}"
+                                   Margin="0,15,0,0"
+                                   Clicked="OnTerrestreClicked"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- ENTREPOSAGE & STOCKAGE -->
+                <Frame Style="{StaticResource CardFrame}" Padding="0">
+                    <VerticalStackLayout Spacing="0">
+                        <Image Source="entreposage.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="200"/>
+                        <VerticalStackLayout Padding="20" Spacing="10">
+                            <Label Text="Entreposage &amp; Stockage" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Installations sécurisées de stockage et entreposage partout dans le monde. Gestion professionnelle de vos inventaires."
+                                   Style="{StaticResource BodyLabel}"/>
+
+                            <VerticalStackLayout Spacing="8" Margin="0,15,0,0">
+                                <Label Text="• Entrepôts sécurisés 24/7" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Gestion des stocks informatisée" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Manutention spécialisée" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Conditionnement et emballage" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Rapports d'inventaire réguliers" 
+                                       Style="{StaticResource BodyLabel}"/>
+                            </VerticalStackLayout>
+
+                            <Button Text="En savoir plus" 
+                                   Style="{StaticResource PrimaryButton}"
+                                   Margin="0,15,0,0"
+                                   Clicked="OnEntreposageClicked"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- TRANSIT & DOUANE -->
+                <Frame Style="{StaticResource CardFrame}" Padding="0">
+                    <VerticalStackLayout Spacing="0">
+                        <Image Source="douane.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="200"/>
+                        <VerticalStackLayout Padding="20" Spacing="10">
+                            <Label Text="Transit &amp; Douane" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Expertise complète en dédouanement et formalités administratives. Nous facilitons vos opérations import-export."
+                                   Style="{StaticResource BodyLabel}"/>
+
+                            <VerticalStackLayout Spacing="8" Margin="0,15,0,0">
+                                <Label Text="• Dédouanement import/export" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Gestion documentaire complète" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Conseil en réglementation" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Classification tarifaire" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Représentation en douane" 
+                                       Style="{StaticResource BodyLabel}"/>
+                            </VerticalStackLayout>
+
+                            <Button Text="En savoir plus" 
+                                   Style="{StaticResource PrimaryButton}"
+                                   Margin="0,15,0,0"
+                                   Clicked="OnTransitClicked"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- SERVICES SUPPORTS -->
+                <Frame Style="{StaticResource CardFrame}" Padding="0">
+                    <VerticalStackLayout Spacing="0">
+                        <Image Source="supports.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="200"/>
+                        <VerticalStackLayout Padding="20" Spacing="10">
+                            <Label Text="Services Supports Complets" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Accompagnement complet : visas, hébergement, transport local, et bien plus. Votre partenaire pour tous vos besoins logistiques en Guinée."
+                                   Style="{StaticResource BodyLabel}"/>
+
+                            <VerticalStackLayout Spacing="8" Margin="0,15,0,0">
+                                <Label Text="• Assistance visa et immigration" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Réservation d'hébergement" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Transport local VIP" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Services de conciergerie" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <Label Text="• Support administratif" 
+                                       Style="{StaticResource BodyLabel}"/>
+                            </VerticalStackLayout>
+
+                            <Button Text="En savoir plus" 
+                                   Style="{StaticResource PrimaryButton}"
+                                   Margin="0,15,0,0"
+                                   Clicked="OnSupportsClicked"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+
+            <!-- CALL TO ACTION -->
+            <VerticalStackLayout Padding="30,40" 
+                               BackgroundColor="{StaticResource PrimaryColor}">
+                <Label Text="Besoin d'une solution personnalisée ?" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,15"/>
+                <Label Text="Contactez notre équipe pour discuter de vos besoins spécifiques" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,25"/>
+                <Button Text="Contactez-nous" 
+                       Style="{StaticResource PrimaryButton}"
+                       HorizontalOptions="Center"
+                       Clicked="OnContactClicked"/>
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

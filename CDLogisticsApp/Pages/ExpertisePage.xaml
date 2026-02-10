@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CDLogisticsApp.Pages.ExpertisePage"
+             BackgroundColor="{StaticResource LightGrayColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- HEADER -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource PrimaryColor}">
+                <Label Text="Notre Expertise" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+                <Label Text="Des compétences reconnues au service de votre réussite" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+
+            <!-- INTRODUCTION -->
+            <VerticalStackLayout Padding="20,30" 
+                               BackgroundColor="{StaticResource WhiteColor}">
+                <Label Text="Fort de 5+ années d'expérience, CD-Logistics maîtrise l'ensemble de la chaîne logistique en Guinée et à l'international. Notre expertise reconnue nous permet de répondre aux défis les plus complexes." 
+                       Style="{StaticResource BodyLabel}"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,20"/>
+            </VerticalStackLayout>
+
+            <!-- DOMAINES D'EXPERTISE -->
+            <VerticalStackLayout Padding="20,30" Spacing="20">
+                <Label Text="Nos Domaines d'Excellence" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+
+                <!-- Fret Maritime -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="15">
+                            <Label Text="🚢" FontSize="40" VerticalOptions="Start"/>
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="Fret Maritime International" 
+                                       Style="{StaticResource SubtitleLabel}"/>
+                                <Label Text="Expertise approfondie en transport maritime depuis les principaux ports mondiaux vers la Guinée :" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <VerticalStackLayout Spacing="5" Margin="10,5,0,0">
+                                    <Label Text="• Gestion de conteneurs FCL/LCL" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Consignation et huissier de navires" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Affrètement et chartering" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Manutention portuaire" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Optimisation des coûts maritimes" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Transit & Douane -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="15">
+                            <Label Text="📋" FontSize="40" VerticalOptions="Start"/>
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="Transit &amp; Dédouanement" 
+                                       Style="{StaticResource SubtitleLabel}"/>
+                                <Label Text="Maîtrise complète des procédures douanières guinéennes et internationales :" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <VerticalStackLayout Spacing="5" Margin="10,5,0,0">
+                                    <Label Text="• Déclaration en douane import/export" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Classification tarifaire HS Code" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Régimes douaniers spéciaux" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Conseil en fiscalité douanière" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Représentation en douane agrée" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                </VerticalStackLayout>
+                                </VerticalStackLevel>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Logistique BTP -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="15">
+                            <Label Text="🏗️" FontSize="40" VerticalOptions="Start"/>
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="Logistique BTP &amp; Grands Projets" 
+                                       Style="{StaticResource SubtitleLabel}"/>
+                                <Label Text="Spécialisation dans le support logistique des projets d'infrastructure :" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <VerticalStackLayout Spacing="5" Margin="10,5,0,0">
+                                    <Label Text="• Transport d'équipements lourds" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Gestion de projet clé en main" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Convois exceptionnels" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Stockage sécurisé de matériaux" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Logistique de chantier" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Conseil & Optimisation -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <HorizontalStackLayout Spacing="15">
+                            <Label Text="💼" FontSize="40" VerticalOptions="Start"/>
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="Conseil &amp; Optimisation" 
+                                       Style="{StaticResource SubtitleLabel}"/>
+                                <Label Text="Accompagnement stratégique pour optimiser votre supply chain :" 
+                                       Style="{StaticResource BodyLabel}"/>
+                                <VerticalStackLayout Spacing="5" Margin="10,5,0,0">
+                                    <Label Text="• Audit logistique" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Optimisation des coûts" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Cartographie des flux" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Formation des équipes" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                    <Label Text="• Mise en place de KPI" 
+                                           Style="{StaticResource BodyLabel}"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+
+            <!-- SECTEURS D'ACTIVITÉ -->
+            <VerticalStackLayout Padding="20,30" 
+                               BackgroundColor="{StaticResource LightGrayColor}"
+                               Spacing="20">
+                <Label Text="Secteurs d'Activité" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+
+                <Label Text="Nous intervenons auprès de clients de tous secteurs" 
+                       Style="{StaticResource BodyLabel}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,15"/>
+
+                <Grid ColumnSpacing="15" RowSpacing="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Frame Grid.Row="0" Grid.Column="0" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource PrimaryColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="🏗️" FontSize="32" HorizontalOptions="Center"/>
+                            <Label Text="BTP" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Construction et infrastructures" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="1" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource AccentColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="⛏️" FontSize="32" HorizontalOptions="Center"/>
+                            <Label Text="Mines" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Industrie minière" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="0" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource SecondaryColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="🏭" FontSize="32" HorizontalOptions="Center"/>
+                            <Label Text="Industrie" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Production manufacturière" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="1" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource PrimaryColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="🛒" FontSize="32" HorizontalOptions="Center"/>
+                            <Label Text="Distribution" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Commerce et retail" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="2" Grid.Column="0" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource AccentColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="🌾" FontSize="32" HorizontalOptions="Center"/>
+                            <Label Text="Agro-alimentaire" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Agriculture et agroalimentaire" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="2" Grid.Column="1" 
+                           Style="{StaticResource CardFrame}"
+                           BackgroundColor="{StaticResource SecondaryColor}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="🏥" FontSize="32" HorizontalOptions="Center"/>
+                            <Label Text="Santé" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            <Label Text="Médical et pharmaceutique" 
+                                   TextColor="White"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+            </VerticalStackLayout>
+
+            <!-- CERTIFICATIONS & AGRÉMENTS -->
+            <VerticalStackLayout Padding="20,30" 
+                               BackgroundColor="{StaticResource WhiteColor}"
+                               Spacing="20">
+                <Label Text="Certifications &amp; Agréments" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,15"/>
+
+                <VerticalStackLayout Spacing="15">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Agrément en douane - République de Guinée" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Licence de transport routier de marchandises" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Agrément consignation de navires" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Membre de réseaux internationaux de transitaires" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="✅" FontSize="24" VerticalOptions="Start"/>
+                        <Label Text="Assurances professionnelles complètes" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- CALL TO ACTION -->
+            <VerticalStackLayout Padding="30,40" 
+                               BackgroundColor="{StaticResource PrimaryColor}">
+                <Label Text="Besoin d'une Expertise Pointue ?" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,15"/>
+                <Label Text="Nos experts sont à votre disposition pour étudier vos besoins" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,25"/>
+                <Button Text="Demander un devis" 
+                       Style="{StaticResource PrimaryButton}"
+                       HorizontalOptions="Center"
+                       Clicked="OnContactClicked"/>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -2,9 +2,9 @@ using Microsoft.Maui.Controls;
 
 namespace CDLogisticsApp.Pages;
 
-public partial class AboutPage : ContentPage
+public partial class ExpertisePage : ContentPage
 {
-    public AboutPage()
+    public ExpertisePage()
     {
         InitializeComponent();
     }

@@ -2,17 +2,381 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CDLogisticsApp.Pages.ContactPage"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{StaticResource LightGrayColor}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <VerticalStackLayout Spacing="0">
 
-            <Label Text="Contactez-nous" Style="{StaticResource TitleLabel}" HorizontalOptions="Center"/>
+            <!-- HEADER -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource PrimaryColor}">
+                <Label Text="Contactez-Nous" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+                <Label Text="Notre équipe est à votre écoute 24/7" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
 
-            <Entry x:Name="NameEntry" Placeholder="Nom complet" />
-            <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" />
-            <Editor x:Name="MessageEditor" Placeholder="Votre message" HeightRequest="120"/>
-            <Button Text="Envoyer" Style="{StaticResource PrimaryButton}" Clicked="OnSendClicked"/>
+            <!-- INFORMATIONS DE CONTACT -->
+            <VerticalStackLayout Padding="20,30" 
+                               BackgroundColor="{StaticResource WhiteColor}"
+                               Spacing="20">
+                <Label Text="Nos Coordonnées" 
+                       Style="{StaticResource SubtitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+
+                <!-- Téléphone -->
+                <Frame Style="{StaticResource CardFrame}"
+                       BackgroundColor="{StaticResource LightGrayColor}">
+                    <HorizontalStackLayout Spacing="15">
+                        <Frame CornerRadius="25" 
+                               HeightRequest="50" 
+                               WidthRequest="50" 
+                               Padding="0"
+                               BackgroundColor="{StaticResource AccentColor}"
+                               HasShadow="False">
+                            <Label Text="📞" 
+                                   FontSize="24"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                            <Label Text="Téléphone" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   FontSize="16"/>
+                            <Label Text="+224 622 70 61 60" 
+                                   Style="{StaticResource BodyLabel}"
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPhoneClicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <!-- Email -->
+                <Frame Style="{StaticResource CardFrame}"
+                       BackgroundColor="{StaticResource LightGrayColor}">
+                    <HorizontalStackLayout Spacing="15">
+                        <Frame CornerRadius="25" 
+                               HeightRequest="50" 
+                               WidthRequest="50" 
+                               Padding="0"
+                               BackgroundColor="{StaticResource SecondaryColor}"
+                               HasShadow="False">
+                            <Label Text="📧" 
+                                   FontSize="24"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                            <Label Text="Email" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   FontSize="16"/>
+                            <Label Text="info@asm-cdlogistics.com" 
+                                   Style="{StaticResource BodyLabel}"
+                                   TextColor="{StaticResource SecondaryColor}"
+                                   FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnEmailClicked"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <!-- Adresse -->
+                <Frame Style="{StaticResource CardFrame}"
+                       BackgroundColor="{StaticResource LightGrayColor}">
+                    <HorizontalStackLayout Spacing="15">
+                        <Frame CornerRadius="25" 
+                               HeightRequest="50" 
+                               WidthRequest="50" 
+                               Padding="0"
+                               BackgroundColor="{StaticResource PrimaryColor}"
+                               HasShadow="False">
+                            <Label Text="📍" 
+                                   FontSize="24"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                            <Label Text="Adresse" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   FontSize="16"/>
+                            <Label Text="Conakry, Guinée" 
+                                   Style="{StaticResource BodyLabel}"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <!-- Horaires -->
+                <Frame Style="{StaticResource CardFrame}"
+                       BackgroundColor="{StaticResource LightGrayColor}">
+                    <HorizontalStackLayout Spacing="15">
+                        <Frame CornerRadius="25" 
+                               HeightRequest="50" 
+                               WidthRequest="50" 
+                               Padding="0"
+                               BackgroundColor="{StaticResource AccentColor}"
+                               HasShadow="False">
+                            <Label Text="🕐" 
+                                   FontSize="24"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Frame>
+                        <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                            <Label Text="Disponibilité" 
+                                   Style="{StaticResource SubtitleLabel}"
+                                   FontSize="16"/>
+                            <Label Text="24/7 - Service disponible" 
+                                   Style="{StaticResource BodyLabel}"
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- FORMULAIRE DE CONTACT -->
+            <VerticalStackLayout Padding="20,30" Spacing="20">
+                <Label Text="Envoyez-nous un Message" 
+                       Style="{StaticResource SubtitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="15">
+                        <!-- Nom -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Nom complet *" 
+                                   Style="{StaticResource BodyLabel}"
+                                   FontAttributes="Bold"/>
+                            <Entry x:Name="NameEntry" 
+                                   Placeholder="Votre nom et prénom"
+                                   PlaceholderColor="{StaticResource LightTextColor}"/>
+                        </VerticalStackLayout>
+
+                        <!-- Email -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Email *" 
+                                   Style="{StaticResource BodyLabel}"
+                                   FontAttributes="Bold"/>
+                            <Entry x:Name="EmailEntry" 
+                                   Placeholder="votre@email.com" 
+                                   Keyboard="Email"
+                                   PlaceholderColor="{StaticResource LightTextColor}"/>
+                        </VerticalStackLayout>
+
+                        <!-- Téléphone -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Téléphone *" 
+                                   Style="{StaticResource BodyLabel}"
+                                   FontAttributes="Bold"/>
+                            <Entry x:Name="PhoneEntry" 
+                                   Placeholder="+224 XXX XX XX XX" 
+                                   Keyboard="Telephone"
+                                   PlaceholderColor="{StaticResource LightTextColor}"/>
+                        </VerticalStackLayout>
+
+                        <!-- Entreprise -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Entreprise" 
+                                   Style="{StaticResource BodyLabel}"
+                                   FontAttributes="Bold"/>
+                            <Entry x:Name="CompanyEntry" 
+                                   Placeholder="Nom de votre entreprise (optionnel)"
+                                   PlaceholderColor="{StaticResource LightTextColor}"/>
+                        </VerticalStackLayout>
+
+                        <!-- Service -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Service concerné *" 
+                                   Style="{StaticResource BodyLabel}"
+                                   FontAttributes="Bold"/>
+                            <Picker x:Name="ServicePicker"
+                                    Title="Sélectionnez un service">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Fret Maritime</x:String>
+                                        <x:String>Transport Aérien</x:String>
+                                        <x:String>Transport Terrestre</x:String>
+                                        <x:String>Entreposage &amp; Stockage</x:String>
+                                        <x:String>Transit &amp; Douane</x:String>
+                                        <x:String>Services Supports</x:String>
+                                        <x:String>Autre / Demande générale</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </VerticalStackLayout>
+
+                        <!-- Message -->
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Votre message *" 
+                                   Style="{StaticResource BodyLabel}"
+                                   FontAttributes="Bold"/>
+                            <Editor x:Name="MessageEditor" 
+                                    Placeholder="Décrivez votre besoin en détail..."
+                                    HeightRequest="150"
+                                    PlaceholderColor="{StaticResource LightTextColor}"/>
+                        </VerticalStackLayout>
+
+                        <!-- Note -->
+                        <Label Text="* Champs obligatoires" 
+                               Style="{StaticResource SmallLabel}"
+                               FontStyle="Italic"
+                               Margin="0,10,0,0"/>
+
+                        <!-- Bouton Envoyer -->
+                        <Button Text="Envoyer le message" 
+                               Style="{StaticResource PrimaryButton}"
+                               Clicked="OnSendClicked"
+                               Margin="0,10,0,0"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- RÉSEAUX SOCIAUX -->
+            <VerticalStackLayout Padding="20,30" 
+                               BackgroundColor="{StaticResource LightGrayColor}"
+                               Spacing="20">
+                <Label Text="Suivez-Nous" 
+                       Style="{StaticResource SubtitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                    <Frame CornerRadius="30" 
+                           HeightRequest="60" 
+                           WidthRequest="60" 
+                           Padding="0"
+                           BackgroundColor="{StaticResource PrimaryColor}"
+                           HasShadow="True">
+                        <Label Text="f" 
+                               FontSize="32"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFacebookClicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Frame>
+
+                    <Frame CornerRadius="30" 
+                           HeightRequest="60" 
+                           WidthRequest="60" 
+                           Padding="0"
+                           BackgroundColor="{StaticResource AccentColor}"
+                           HasShadow="True">
+                        <Label Text="in" 
+                               FontSize="28"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnLinkedInClicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Frame>
+
+                    <Frame CornerRadius="30" 
+                           HeightRequest="60" 
+                           WidthRequest="60" 
+                           Padding="0"
+                           BackgroundColor="{StaticResource SecondaryColor}"
+                           HasShadow="True">
+                        <Label Text="✉" 
+                               FontSize="32"
+                               TextColor="White"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnEmailSocialClicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Frame>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <!-- FAQ RAPIDE -->
+            <VerticalStackLayout Padding="20,30" 
+                               BackgroundColor="{StaticResource WhiteColor}"
+                               Spacing="20">
+                <Label Text="Questions Fréquentes" 
+                       Style="{StaticResource SubtitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,15"/>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="❓ Quels sont vos délais de livraison ?" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"/>
+                        <Label Text="Les délais varient selon le service : 24-48h pour le fret aérien express, 15-30 jours pour le maritime. Contactez-nous pour un devis précis." 
+                               Style="{StaticResource BodyLabel}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="❓ Proposez-vous des solutions personnalisées ?" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"/>
+                        <Label Text="Oui ! Chaque projet est unique. Nos experts étudient vos besoins pour vous proposer la solution la plus adaptée." 
+                               Style="{StaticResource BodyLabel}"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Style="{StaticResource CardFrame}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="❓ Comment suivre mon envoi ?" 
+                               Style="{StaticResource BodyLabel}"
+                               FontAttributes="Bold"/>
+                        <Label Text="Nous fournissons un suivi en temps réel pour tous vos envois. Vous recevez des notifications à chaque étape." 
+                               Style="{StaticResource BodyLabel}"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- URGENCES -->
+            <VerticalStackLayout Padding="30,40" 
+                               BackgroundColor="{StaticResource AccentColor}">
+                <Label Text="⚡ Besoin Urgent ?" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,15"/>
+                <Label Text="Appelez-nous immédiatement" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+                <Label Text="+224 622 70 61 60" 
+                       TextColor="White"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,20">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPhoneClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="Support disponible 24h/24 et 7j/7" 
+                       TextColor="White"
+                       FontSize="14"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

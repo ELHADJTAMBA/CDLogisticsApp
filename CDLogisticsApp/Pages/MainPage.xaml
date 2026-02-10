@@ -2,19 +2,304 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CDLogisticsApp.Pages.MainPage"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{StaticResource LightGrayColor}">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="20" Padding="20">
+        <VerticalStackLayout Spacing="0">
 
-            <Image Source="hero.jpg" Aspect="AspectFill" HeightRequest="250" />
+            <!-- HERO SECTION avec Carousel -->
+            <CarouselView x:Name="HeroCarousel" 
+                         HeightRequest="400"
+                         Loop="True"
+                         IndicatorView="indicatorView">
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>hero1.jpg</x:String>
+                        <x:String>hero2.jpg</x:String>
+                        <x:String>hero3.jpg</x:String>
+                        <x:String>hero4.jpg</x:String>
+                        <x:String>hero5.jpg</x:String>
+                        <x:String>hero6.jpg</x:String>
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Image Source="{Binding .}" 
+                                   Aspect="AspectFill"/>
+                            <BoxView Color="#00336680"/>
+                            <VerticalStackLayout VerticalOptions="Center" 
+                                               Padding="30">
+                                <Label Text="Votre Partenaire Logistique en Guinée" 
+                                       Style="{StaticResource HeroTitle}"
+                                       Margin="0,0,0,20"/>
+                                <Label Text="CD-Logistics vous accompagne depuis 2019 avec des services logistiques complets" 
+                                       TextColor="White"
+                                       FontSize="18"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Margin="0,0,0,30"/>
+                                <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+                                    <Button Text="Démarrer un projet" 
+                                           Style="{StaticResource PrimaryButton}"
+                                           Clicked="OnContactClicked"/>
+                                    <Button Text="Nos services" 
+                                           Style="{StaticResource SecondaryButton}"
+                                           TextColor="White"
+                                           BorderColor="White"
+                                           Clicked="OnServicesClicked"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
 
-            <Label Text="Bienvenue chez CD Logistics" Style="{StaticResource TitleLabel}" HorizontalOptions="Center" />
+            <IndicatorView x:Name="indicatorView"
+                          IndicatorColor="LightGray"
+                          SelectedIndicatorColor="#FF9900"
+                          HorizontalOptions="Center"
+                          Margin="0,-30,0,20"/>
 
-            <Label Text="Nous fournissons des solutions de transport et logistique efficaces pour votre entreprise." 
-                   Style="{StaticResource BodyLabel}" HorizontalOptions="Center" />
+            <!-- SECTION STATISTIQUES -->
+            <Grid Padding="30,40" 
+                  BackgroundColor="{StaticResource WhiteColor}"
+                  ColumnSpacing="20"
+                  RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Button Text="Voir nos services" Style="{StaticResource PrimaryButton}" Clicked="OnServicesClicked" />
+                <VerticalStackLayout Grid.Row="0" Grid.Column="0">
+                    <Label Text="5+" Style="{StaticResource StatNumber}"/>
+                    <Label Text="Années d'expérience" Style="{StaticResource StatLabel}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="0" Grid.Column="1">
+                    <Label Text="500+" Style="{StaticResource StatNumber}"/>
+                    <Label Text="Clients satisfaits" Style="{StaticResource StatLabel}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="0" Grid.Column="2">
+                    <Label Text="1000+" Style="{StaticResource StatNumber}"/>
+                    <Label Text="Opérations réussies" Style="{StaticResource StatLabel}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="0" Grid.Column="3">
+                    <Label Text="24/7" Style="{StaticResource StatNumber}"/>
+                    <Label Text="Support disponible" Style="{StaticResource StatLabel}"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- SECTION SERVICES -->
+            <VerticalStackLayout Padding="20,40" 
+                               BackgroundColor="{StaticResource LightGrayColor}">
+                <Label Text="Nos Solutions Logistiques" 
+                       Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10"/>
+                <Label Text="Des services complets pour répondre à tous vos besoins logistiques" 
+                       Style="{StaticResource BodyLabel}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,30"/>
+
+                <!-- Fret Maritime -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="maritime.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="120"/>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Fret Maritime International" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Solutions complètes de transport maritime avec couverture mondiale" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="En savoir plus >" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnServiceTapped" 
+                                                         CommandParameter="maritime"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Transport Aérien -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="aerien.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="120"/>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Transport Aérien" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Services de fret aérien rapides et sécurisés pour vos marchandises urgentes" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="En savoir plus >" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnServiceTapped" 
+                                                         CommandParameter="aerien"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Transport Terrestre -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="terrestre.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="120"/>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Transport Terrestre" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Flotte moderne de véhicules pour le transport local et régional" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="En savoir plus >" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnServiceTapped" 
+                                                         CommandParameter="terrestre"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Entreposage -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="entreposage.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="120"/>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Entreposage & Stockage" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Installations sécurisées de stockage partout dans le monde" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="En savoir plus >" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnServiceTapped" 
+                                                         CommandParameter="entreposage"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Transit & Douane -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="douane.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="120"/>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Transit & Douane" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Expertise complète en dédouanement et formalités administratives" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="En savoir plus >" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnServiceTapped" 
+                                                         CommandParameter="transit"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+
+                <!-- Services Supports -->
+                <Frame Style="{StaticResource CardFrame}">
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="supports.jpg" 
+                               Aspect="AspectFill"
+                               HeightRequest="100"
+                               WidthRequest="120"/>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Services Supports" 
+                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Accompagnement complet : visas, hébergement, transport local" 
+                                   Style="{StaticResource BodyLabel}"/>
+                            <Label Text="En savoir plus >" 
+                                   TextColor="{StaticResource AccentColor}"
+                                   FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnServiceTapped" 
+                                                         CommandParameter="supports"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+
+            <!-- CALL TO ACTION -->
+            <VerticalStackLayout Padding="30,50" 
+                               BackgroundColor="{StaticResource PrimaryColor}">
+                <Label Text="Prêt à Optimiser Votre Logistique ?" 
+                       Style="{StaticResource TitleLabel}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,20"/>
+                <Label Text="Contactez-nous dès aujourd'hui pour discuter de vos besoins" 
+                       TextColor="White"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,30"/>
+                <Button Text="Contactez-Nous Maintenant" 
+                       Style="{StaticResource PrimaryButton}"
+                       HorizontalOptions="Center"
+                       Clicked="OnContactClicked"/>
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
