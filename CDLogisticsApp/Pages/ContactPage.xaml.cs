@@ -1,6 +1,5 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.ApplicationModel.Communication;
-using System;
 
 namespace CDLogisticsApp.Pages;
 
@@ -16,17 +15,11 @@ public partial class ContactPage : ContentPage
         try
         {
             if (PhoneDialer.Default.IsSupported)
-            {
                 PhoneDialer.Default.Open("+224622706160");
-            }
-            else
-            {
-                await DisplayAlert("Téléphone", "+224 622 70 61 60", "OK");
-            }
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Erreur", "Impossible d'ouvrir le composeur téléphonique.", "OK");
+            await DisplayAlert("Erreur", "Impossible d'ouvrir le composeur téléphonique", "OK");
         }
     }
 
@@ -43,7 +36,7 @@ public partial class ContactPage : ContentPage
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Email", "info@asm-cdlogistics.com", "OK");
+            await DisplayAlert("Erreur", "Impossible d'ouvrir l'application email", "OK");
         }
     }
 
@@ -58,9 +51,9 @@ public partial class ContactPage : ContentPage
         {
             await Browser.Default.OpenAsync("https://www.facebook.com/cdlogistics", BrowserLaunchMode.SystemPreferred);
         }
-        catch
+        catch (Exception ex)
         {
-            await DisplayAlert("Facebook", "Visitez notre page Facebook : @cdlogistics", "OK");
+            await DisplayAlert("Erreur", "Impossible d'ouvrir le lien", "OK");
         }
     }
 
@@ -68,20 +61,20 @@ public partial class ContactPage : ContentPage
     {
         try
         {
-            await Browser.Default.OpenAsync("https://www.linkedin.com/company/cd-logistics", BrowserLaunchMode.SystemPreferred);
+            await Browser.Default.OpenAsync("https://www.linkedin.com/company/cdlogistics", BrowserLaunchMode.SystemPreferred);
         }
-        catch
+        catch (Exception ex)
         {
-            await DisplayAlert("LinkedIn", "Suivez-nous sur LinkedIn : CD-Logistics", "OK");
+            await DisplayAlert("Erreur", "Impossible d'ouvrir le lien", "OK");
         }
     }
 
     private async void OnSendClicked(object sender, EventArgs e)
     {
-        // Validation des champs
+        // Validation
         if (string.IsNullOrWhiteSpace(NameEntry.Text))
         {
-            await DisplayAlert("Erreur", "Veuillez entrer votre nom complet", "OK");
+            await DisplayAlert("Erreur", "Veuillez entrer votre nom", "OK");
             return;
         }
 
@@ -109,29 +102,22 @@ public partial class ContactPage : ContentPage
             return;
         }
 
-        // Validation de l'email
-        if (!IsValidEmail(EmailEntry.Text))
-        {
-            await DisplayAlert("Erreur", "Veuillez entrer une adresse email valide", "OK");
-            return;
-        }
-
-        // Construire le message email
+        // Envoi du message via email
         try
         {
-            var emailMessage = new EmailMessage
+            var message = new EmailMessage
             {
-                Subject = $"Demande de contact - {ServicePicker.Items[ServicePicker.SelectedIndex]}",
+                Subject = $"Contact depuis l'application - {ServicePicker.SelectedItem}",
+                To = new List<string> { "info@asm-cdlogistics.com" },
                 Body = $"Nom: {NameEntry.Text}\n" +
                        $"Email: {EmailEntry.Text}\n" +
                        $"Téléphone: {PhoneEntry.Text}\n" +
                        $"Entreprise: {CompanyEntry.Text}\n" +
-                       $"Service: {ServicePicker.Items[ServicePicker.SelectedIndex]}\n\n" +
-                       $"Message:\n{MessageEditor.Text}",
-                To = new List<string> { "info@asm-cdlogistics.com" }
+                       $"Service: {ServicePicker.SelectedItem}\n\n" +
+                       $"Message:\n{MessageEditor.Text}"
             };
 
-            await Email.Default.ComposeAsync(emailMessage);
+            await Email.Default.ComposeAsync(message);
 
             // Réinitialiser le formulaire
             NameEntry.Text = string.Empty;
@@ -141,24 +127,11 @@ public partial class ContactPage : ContentPage
             ServicePicker.SelectedIndex = -1;
             MessageEditor.Text = string.Empty;
 
-            await DisplayAlert("Succès", "Votre message a été envoyé avec succès!", "OK");
+            await DisplayAlert("Succès", "Votre message a été préparé. Veuillez l'envoyer depuis votre application email.", "OK");
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Erreur", "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.", "OK");
-        }
-    }
-
-    private bool IsValidEmail(string email)
-    {
-        try
-        {
-            var addr = new System.Net.Mail.MailAddress(email);
-            return addr.Address == email;
-        }
-        catch
-        {
-            return false;
+            await DisplayAlert("Erreur", "Impossible d'envoyer le message. Veuillez réessayer.", "OK");
         }
     }
 }
