@@ -11,8 +11,16 @@ public partial class TeamPage : ContentPage
 
     private async void OnCareersClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Carrières",
-            "Pour postuler, envoyez votre CV à recrutement@asm-cdlogistics.com\n\nNous recrutons régulièrement :\n• Logisticiens\n• Chauffeurs\n• Transitaires\n• Service client",
-            "OK");
+        await DisplayAlert(
+            "Carrières",
+            "Nous recherchons constamment des talents passionnés par la logistique.\n\n" +
+            "Postes disponibles :\n" +
+            "• Transitaire junior\n" +
+            "• Agent de douane\n" +
+            "• Responsable transport\n" +
+            "• Coordinateur logistique\n\n" +
+            "Contactez-nous pour postuler : info@asm-cdlogistics.com",
+            "OK"
+        );
     }
 }

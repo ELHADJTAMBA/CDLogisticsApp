@@ -87,7 +87,7 @@
                                     <Label Text="• Représentation en douane agrée" 
                                            Style="{StaticResource BodyLabel}"/>
                                 </VerticalStackLayout>
-                                </VerticalStackLevel>
+                            </VerticalStackLayout>
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Frame>

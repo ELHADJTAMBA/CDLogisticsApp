@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
+x:Class="CDLogisticsApp.Pages.MainPage"
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CDLogisticsApp.Pages.MainPage"
@@ -207,8 +208,8 @@
                                HeightRequest="100"
                                WidthRequest="120"/>
                         <VerticalStackLayout Grid.Column="1" Spacing="5">
-                            <Label Text="Entreposage & Stockage" 
-                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Entreposage &amp; Stockage" />
+                            Style="{StaticResource SubtitleLabel}"/>
                             <Label Text="Installations sécurisées de stockage partout dans le monde" 
                                    Style="{StaticResource BodyLabel}"/>
                             <Label Text="En savoir plus >" 
@@ -235,8 +236,8 @@
                                HeightRequest="100"
                                WidthRequest="120"/>
                         <VerticalStackLayout Grid.Column="1" Spacing="5">
-                            <Label Text="Transit & Douane" 
-                                   Style="{StaticResource SubtitleLabel}"/>
+                            <Label Text="Transit &amp; Douane" />
+                            Style="{StaticResource SubtitleLabel}"/>
                             <Label Text="Expertise complète en dédouanement et formalités administratives" 
                                    Style="{StaticResource BodyLabel}"/>
                             <Label Text="En savoir plus >" 
