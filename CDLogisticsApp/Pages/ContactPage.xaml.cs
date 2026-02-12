@@ -40,10 +40,25 @@ public partial class ContactPage : ContentPage
         }
     }
 
-    private async void OnEmailSocialClicked(object sender, EventArgs e)
+    private async Task SendEmailAsync()
     {
-        await OnEmailClicked(sender, e);
+        try
+        {
+            var message = new EmailMessage
+            {
+                Subject = "Demande d'information",
+                To = new List<string> { "info@asm-cdlogistics.com" }
+            };
+
+            await Email.Default.ComposeAsync(message);
+        }
+        catch
+        {
+            await DisplayAlert("Erreur", "Impossible d'ouvrir l'application email", "OK");
+        }
     }
+
+
 
     private async void OnFacebookClicked(object sender, EventArgs e)
     {
