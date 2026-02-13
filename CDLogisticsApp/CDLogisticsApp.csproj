@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
@@ -53,6 +53,28 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidResource Remove="Resources\Images\aerien.jpg" />
+	  <AndroidResource Remove="Resources\Images\ceo.jpg" />
+	  <AndroidResource Remove="Resources\Images\customer_service.jpg" />
+	  <AndroidResource Remove="Resources\Images\douane.jpg" />
+	  <AndroidResource Remove="Resources\Images\entreposage.jpg" />
+	  <AndroidResource Remove="Resources\Images\hero1.jpg" />
+	  <AndroidResource Remove="Resources\Images\hero2.jpg" />
+	  <AndroidResource Remove="Resources\Images\hero3.jpg" />
+	  <AndroidResource Remove="Resources\Images\hero4.jpg" />
+	  <AndroidResource Remove="Resources\Images\hero5.jpg" />
+	  <AndroidResource Remove="Resources\Images\hero6.jpg" />
+	  <AndroidResource Remove="Resources\Images\maritime.jpg" />
+	  <AndroidResource Remove="Resources\Images\maritime_manager.jpg" />
+	  <AndroidResource Remove="Resources\Images\operations.jpg" />
+	  <AndroidResource Remove="Resources\Images\supports.jpg" />
+	  <AndroidResource Remove="Resources\Images\terrestre.jpg" />
+	  <AndroidResource Remove="Resources\Images\transit_manager.jpg" />
+	  <AndroidResource Remove="Resources\Images\transport_manager.jpg" />
+	  <AndroidResource Remove="Resources\Images\warehouse_manager.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
